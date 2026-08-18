@@ -27,11 +27,9 @@ const CustomCursor = () => {
     window.addEventListener("mouseover", onEnter);
     window.addEventListener("mouseout", onLeave);
     const animate = () => {
-      // Dot: instant
       if (dotRef.current) {
         dotRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
       }
-      // Ring: lerp lag
       ring.current.x += (pos.current.x - ring.current.x) * 0.12;
       ring.current.y += (pos.current.y - ring.current.y) * 0.12;
       if (ringRef.current) {
@@ -47,6 +45,7 @@ const CustomCursor = () => {
       cancelAnimationFrame(rafId.current);
     };
   }, []);
+
   return (
     <>
       <div ref={dotRef} className="cursor-dot" />

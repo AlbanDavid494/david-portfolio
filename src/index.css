@@ -1,1 +1,44 @@
-@import 'tailwindcss'
+@import "tailwindcss";
+
+/* Custom cursor (used by components/ui/CustomCursor.jsx) */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a855f7;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.05s linear, width 0.2s, height 0.2s;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+.cursor-dot-hover {
+  width: 10px;
+  height: 10px;
+}
+
+.cursor-hover {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(168, 85, 247, 0.9);
+}
+
+/* Hide the native cursor site-wide since CustomCursor replaces it */
+* {
+  cursor: none !important;
+}

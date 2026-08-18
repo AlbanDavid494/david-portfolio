@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { NAV_LINKS } from "../data/navLinks";
-
+import { NAV_LINKS } from "../../data/navLinks";
 
 const Navbar = ({ scrollTo }) => {
-
-const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -18,16 +16,15 @@ const [scrolled,  setScrolled]  = useState(false);
     setMenuOpen(false);
   };
 
-return (
+  return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-2xl bg-black/30 border-b border-white/5 ${scrolled ? "py-3 bg-black/50 shadow-lg" : "py-5"}`}>
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        
         {/* Logo */}
         <button onClick={() => handleLink("Home")} className="syne font-extrabold text-xl tracking-tight cursor-pointer bg-none border-none">
           <span className="shimmer-text">&lt;David/&gt;</span>
           <span className="text-white/40 font-light"></span>
         </button>
-        
+
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(link => (
@@ -40,7 +37,7 @@ return (
             </button>
           ))}
         </div>
-        
+
         {/* Hamburger */}
         <button
           className="md:hidden text-white/70 hover:text-white bg-none border-none cursor-pointer"
@@ -54,7 +51,7 @@ return (
           </div>
         </button>
       </div>
-      
+
       {/* Mobile drawer */}
       {menuOpen && (
         <div className="md:hidden backdrop-blur-2xl bg-black/80 border-t border-white/10 px-6 py-5 space-y-1">
@@ -71,6 +68,6 @@ return (
       )}
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

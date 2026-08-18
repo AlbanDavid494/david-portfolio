@@ -2,11 +2,10 @@ import { useState } from "react";
 
 /** Card with a subtle purple glow border on hover. */
 const GlowCard = ({ children, className = "", style = {} }) => {
- 
-    const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
-      <div
+    <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={`relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-500
@@ -22,8 +21,7 @@ const GlowCard = ({ children, className = "", style = {} }) => {
       )}
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default GlowCard
-
+export default GlowCard;

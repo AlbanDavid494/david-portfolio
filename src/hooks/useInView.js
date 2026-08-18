@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react"; 
- 
- export function useInView(threshold = 0.15) {
+import { useState, useEffect, useRef } from "react";
+
+export function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -11,6 +11,6 @@ import { useState, useEffect, useRef } from "react";
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-  
+
   return [ref, inView];
 }
